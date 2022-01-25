@@ -1,0 +1,44 @@
+{
+  "name": "UW SSO Login",
+  "manifest_version": 2,
+  "version": "1.0",
+  "description": "Automatic login to UW SSO, automatic Zoom login, WebAssign features",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "UW SSO Login"
+  },
+
+  "permissions": ["*://idp.u.washington.edu/", "tabs", "activeTab", "storage"],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://idp.u.washington.edu/*"],
+      "js": ["autofill.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://zoom.us/signin*", "https://zoom.us/web/sso/login*"],
+      "js": ["zoom.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.webassign.net/*",
+        "https://account.cengage.com/*"
+      ],
+      "js": ["webassign.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "externally_connectable": {
+    "matches": ["*://*.washington.edu/*"]
+  }
+}
