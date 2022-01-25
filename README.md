@@ -1,6 +1,6 @@
 # UW SSO Login+ (Chromium)
  
-This extension is the same as https://github.com/kaedenbrinkman/uw-sso-login, except with a few additional features.
+This extension is the same as [kaedenbrinkman/uw-sso-login](https://github.com/kaedenbrinkman/uw-sso-login), except with a few additional features.
 
 In addition to the features in uw-sso-login, this extension has:
 ## WebAssign Features
